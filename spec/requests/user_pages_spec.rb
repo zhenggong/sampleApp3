@@ -1,11 +1,18 @@
 require 'spec_helper'
 
-describe "UserPages" do
-  describe "GET /user_pages" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get user_pages_index_path
-      response.status.should be(200)
+describe "User pages" do
+
+  subject { page }
+
+  describe "Contact page" do
+
+    it "should have the content 'Sign up'" do
+      visit signup_path
+      expect(page).to have_content('Sign up')
+    end
+    it "should have the title 'Sign up'" do
+      visit signup_path
+      expect(page).to have_title("Ruby on Rails Tutorial Sample App | Sign up")
     end
   end
 end
